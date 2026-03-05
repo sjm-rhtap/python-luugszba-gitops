@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: python-luugszba-gitops
+  description: This is GitOps manifest for python-luugszba   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-selector: tssc/gitops=python-luugszba
+    backstage.io/kubernetes-id: python-luugszba 
+    backstage.io/techdocs-ref: dir:. 
+    janus-idp.io/tekton: python-luugszba
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:python-luugszba
